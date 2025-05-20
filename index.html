@@ -190,6 +190,14 @@
   </div>
 
   <script>
+    let voices = [];
+
+    function loadVoices() {
+      voices = window.speechSynthesis.getVoices();
+    }
+
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+    
     const flashcards = [
       { de: "Ich vermisse dich", nl: "Ik mis je" },
       { de: "Du bist wunderschön", nl: "Je bent prachtig" },
@@ -238,7 +246,13 @@
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = lang;
-        speechSynthesis.cancel(); // cancel any ongoing speech to avoid overlap
+
+        // Kies expliciet een stem
+        const preferredVoice = voices.find(v => v.lang === lang);
+        if (preferredVoice) {
+          utterance.voice = preferredVoice;
+        }
+
         speechSynthesis.speak(utterance);
       } else {
         alert("Sorry, jouw browser ondersteunt geen spraak.");
