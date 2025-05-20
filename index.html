@@ -197,10 +197,40 @@
       { de: "Ich denke an dich", nl: "Ik denk aan je" },
       { de: "Du bist mein Lieblingsmensch", nl: "Jij bent mijn favoriete persoon" },
       { de: "Ich will dich bei mir haben", nl: "Ik wil dat je bij me bent" },
+      { de: "Du fehlst mir", nl: "Ik mis je" },
+      { de: "Du machst mich glücklich", nl: "Jij maakt mij gelukkig" },
+      { de: "Du bist alles für mich", nl: "Jij bent alles voor mij" },
+      { de: "Ich liebe dein Lächeln", nl: "Ik hou van je glimlach" },
+      { de: "Mit dir ist alles besser", nl: "Met jou is alles beter" },
+      { de: "Ich will für immer bei dir sein", nl: "Ik wil voor altijd bij je zijn" },
+      { de: "Wie geht es dir?", nl: "Hoe gaat het met je?" },
+      { de: "Was machst du?", nl: "Wat ben je aan het doen?" },
+      { de: "Ich verstehe", nl: "Ik begrijp het" },
+      { de: "Kannst du das wiederholen?", nl: "Kun je dat herhalen?" },
+      { de: "Ich bin müde", nl: "Ik ben moe" },
+      { de: "Ich habe Hunger", nl: "Ik heb honger" },
+      { de: "Ich gehe schlafen", nl: "Ik ga slapen" },
+      { de: "Du bist mein Ein und Alles", nl: "Jij bent mijn alles" },
+      { de: "Du bist mein Zuhause", nl: "Jij bent mijn thuis" },
+      { de: "Ich verstehe nicht", nl: "Ik begrijp het niet" },
+      { de: "Was meinst du?", nl: "Wat bedoel je?" },
+      { de: "Gute Nacht, schlaf schön", nl: "Welterusten, slaap lekker" },
+      { de: "Ich warte auf dich", nl: "Ik wacht op je" },
+      { de: "Komm her, ich will dich umarmen", nl: "Kom hier, ik wil je knuffelen" },
+      { de: "Ich genieße die Zeit mit dir", nl: "Ik geniet van de tijd met jou" },
+      { de: "Ich will dich", nl: "Ik wil je" },
+      { de: "Ich kann nicht mehr warten", nl: "Ik kan niet meer wachten" },
+      { de: "Nur für dich", nl: "Alleen voor jou" },
+      { de: "Ich will deinen Körper", nl: "Ik wil jouw lichaam" },
+      { de: "Ich bin zuhause", nl: "Ik ben thuis" },
+      { de: "Was hast du heute gemacht?", nl: "Wat heb je vandaag gedaan?" },
+      { de: "Ich vermisse dein Lächeln", nl: "Ik mis je glimlach" },
+      { de: "Ich freue mich, dich bald zu sehen", nl: "Ik kijk ernaar uit je snel te zien" },
+      { de: "Ich zähle die Tage", nl: "Ik tel de dagen" },
     ];
 
     let mode = 'flashcard';
-    let index = 0;
+    let index = Math.floor(Math.random() * flashcards.length);
     let direction = 'de-nl';
 
     function speak(text, lang) {
@@ -276,7 +306,7 @@
       if (dutch.style.display === 'none') {
         dutch.style.display = 'grid';
       } else {
-        index = (index + 1) % flashcards.length;
+        index = Math.floor(Math.random() * flashcards.length);
         showFlashcard();
       }
     }
